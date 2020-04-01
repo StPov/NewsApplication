@@ -46,7 +46,18 @@ class NetworkDataFetcher {
             }
             let decode = self.decodeJSON(type: SearchArticles.self, from: data)
             completion(decode)
-            
+        }
+    }
+    
+    func fetchArticlesEverything(for searchText: String, page: Int, completion: @escaping (SearchArticles?) -> ()) {
+        networkService.requestEverything(for: searchText, page: page) { (data, error) in
+            if let error = error {
+                print("Error hanled: \(error.localizedDescription)")
+                self.showAlert(title: "Error received", message: error.localizedDescription)
+                completion(nil)
+            }
+            let decode = self.decodeJSON(type: SearchArticles.self, from: data)
+            completion(decode)
         }
     }
     

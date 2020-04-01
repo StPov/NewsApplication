@@ -26,6 +26,7 @@ class DetailedArticleCollectionViewCell: UICollectionViewCell {
                 headerLabel.text = article.source.name
                 
                 guard let imageUrl = article.urlToImage, let url = URL(string: imageUrl) else {
+                    imageView.image = UIImage(named: "no_image")
                     return
                 }
                 imageView.sd_setImage(with: url, completed: nil)
@@ -35,10 +36,10 @@ class DetailedArticleCollectionViewCell: UICollectionViewCell {
                 publishedAtLabel.text = article.publishedAt
                 
                 guard let author = article.author else {
-                    sourceAndAuthorLabel.text = "\(article.source)"
+                    sourceAndAuthorLabel.text = "\(String(describing: article.source))"
                     return
                 }
-                sourceAndAuthorLabel.text = "\(article.source), \(author)"
+                sourceAndAuthorLabel.text = "\(String(describing: article.source)), \(author)"
             }
         }
     }

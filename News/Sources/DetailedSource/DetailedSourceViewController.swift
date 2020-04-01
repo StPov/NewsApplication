@@ -100,7 +100,7 @@ extension DetailedSourceViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let lastItem = articles.count - 3
         if indexPath.item == lastItem {
-            currentPage += currentPage
+            currentPage += 1
             fetchArticlesEverything(from: currentPage)
         }
     }

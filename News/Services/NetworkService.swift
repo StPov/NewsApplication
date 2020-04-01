@@ -48,11 +48,30 @@ class NetworkService {
         task.resume()
     }
     
+    func requestEverything(for searchText: String, page: Int, completion: @escaping (Data?, Error?) -> Void)  {
+//        let parameters = self.prepareParametersForEverything(from: searchText, page: page)
+        let parameters = self.prepareParametersForEverything(for: searchText, page: page)
+        let url = self.urlEverything(params: parameters)
+        var request = URLRequest(url: url)
+        print("URL: \(url)")
+        request.httpMethod = "get"
+        let task = createDataTask(from: request, completion: completion)
+        task.resume()
+    }
+    
     private func prepareParametersForEverything(from source: String?, page: Int) -> [String: String] {
         var parameters = [String: String]()
         parameters["apiKey"] = "8c66ce1dfb9245cf9fe9be0a484d713e"
         parameters["page"] = String(page)
         parameters["sources"] = source
+        return parameters
+    }
+    
+    private func prepareParametersForEverything(for searchText: String?, page: Int) -> [String: String] {
+        var parameters = [String: String]()
+        parameters["apiKey"] = "8c66ce1dfb9245cf9fe9be0a484d713e"
+        parameters["page"] = String(page)
+        parameters["q"] = searchText
         return parameters
     }
     
