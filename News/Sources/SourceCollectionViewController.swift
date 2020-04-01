@@ -36,6 +36,7 @@ class SourceCollectionViewController: UICollectionViewController {
     private func setupCollectionView() {
         collectionView?.backgroundColor = .clear
         collectionView?.decelerationRate = .fast
+        collectionView.register(SourceCollectionViewCell.self, forCellWithReuseIdentifier: SourceCollectionViewCell.reuseIdentifier)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
