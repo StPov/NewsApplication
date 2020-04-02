@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NewsViewController: UIViewController {
     
@@ -18,7 +19,7 @@ class NewsViewController: UIViewController {
     var currentPage = 1
     
     var articles = [Article]()
-    var searchedTopic: String? = "Russia"
+    var searchedTopic: String? = "Sevastopol"
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
@@ -47,8 +48,8 @@ class NewsViewController: UIViewController {
         let label = sender.view as! UILabel
         
         let cell = tableView.cellForRow(at: IndexPath(row: label.tag, section: 0)) as! NewsTableViewCell
-        let movie = self.articles[label.tag]
-        let description = movie.description
+        let article = self.articles[label.tag]
+        let description = article.description
         cell.newsDescription.sizeToFit()
         cell.newsDescription.text = description
         expandedLabel = cell.newsDescription
@@ -58,7 +59,7 @@ class NewsViewController: UIViewController {
     }
 }
 
-//MARK: UITableViewDelegate & UITableViewDataSource
+//MARK: UITableViewDelegate, UITableViewDataSource
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,6 +84,28 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         return 170
     }
     
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
+            let save = UIAction(title: "Save", image: UIImage(named: "save")) { action in
+                let realm = try! Realm()
+                try! realm.write {
+                    let realmObject = ArticleObject()
+                    let news = self.articles[indexPath.row]
+                    realmObject.article = Article(source: news.source, author: news.author,
+                                                  title: news.title, description: news.description,
+                                                  url: news.url, urlToImage: news.urlToImage,
+                                                  publishedAt: news.publishedAt, content: news.content)
+                    realm.add(realmObject)
+                }
+            }
+            return UIMenu(title: "", children: [save])
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastItem = articles.count - 3
         if indexPath.row == lastItem {
@@ -91,6 +114,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
 //MARK: UISearchBarDelegate
 extension NewsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
