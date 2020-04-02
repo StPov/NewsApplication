@@ -26,6 +26,9 @@
 		855928A124337F14005393BB /* DetailedSourceCollectionViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855928A024337F14005393BB /* DetailedSourceCollectionViewControllerCell.swift */; };
 		855928A424339EBA005393BB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855928A324339EBA005393BB /* DateFormatter.swift */; };
 		85B566492435C5C70011694C /* FavoriteNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B566482435C5C70011694C /* FavoriteNewsViewController.swift */; };
+		85B566572435DD460011694C /* Sources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B566562435DD460011694C /* Sources.storyboard */; };
+		85B5665A2435DDB90011694C /* Articles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B566582435DDB90011694C /* Articles.storyboard */; };
+		85B5665C2435DDCC0011694C /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B5665B2435DDCC0011694C /* Favorites.storyboard */; };
 		BB4896437574B8977BAC2E3E /* Pods_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE918580FEB8BF5D781817D9 /* Pods_News.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,9 @@
 		855928A024337F14005393BB /* DetailedSourceCollectionViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedSourceCollectionViewControllerCell.swift; sourceTree = "<group>"; };
 		855928A324339EBA005393BB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		85B566482435C5C70011694C /* FavoriteNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNewsViewController.swift; sourceTree = "<group>"; };
+		85B566562435DD460011694C /* Sources.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sources.storyboard; sourceTree = SOURCE_ROOT; };
+		85B566592435DDB90011694C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Articles.storyboard; sourceTree = "<group>"; };
+		85B5665B2435DDCC0011694C /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = SOURCE_ROOT; };
 		AE89F67B01C0316049F6052B /* Pods-News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.debug.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.debug.xcconfig"; sourceTree = "<group>"; };
 		AE918580FEB8BF5D781817D9 /* Pods_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDEBA705CD324399A8BF6067 /* Pods-News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.release.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 		8557AF08243349ED00075439 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				85B5665B2435DDCC0011694C /* Favorites.storyboard */,
+				85B566582435DDB90011694C /* Articles.storyboard */,
+				85B566562435DD460011694C /* Sources.storyboard */,
 				8557AEE12433200C00075439 /* AppDelegate.swift */,
 				8557AEE32433200C00075439 /* SceneDelegate.swift */,
 				8557AEE72433200C00075439 /* Main.storyboard */,
@@ -263,6 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8557AEEE2433200D00075439 /* LaunchScreen.storyboard in Resources */,
+				85B5665A2435DDB90011694C /* Articles.storyboard in Resources */,
+				85B5665C2435DDCC0011694C /* Favorites.storyboard in Resources */,
+				85B566572435DD460011694C /* Sources.storyboard in Resources */,
 				8557AEEB2433200D00075439 /* Assets.xcassets in Resources */,
 				8557AEE92433200C00075439 /* Main.storyboard in Resources */,
 			);
@@ -353,6 +365,14 @@
 				8557AEED2433200D00075439 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		85B566582435DDB90011694C /* Articles.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85B566592435DDB90011694C /* Base */,
+			);
+			name = Articles.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
