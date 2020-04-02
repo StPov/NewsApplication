@@ -11,6 +11,7 @@ import RealmSwift
 
 class NewsViewController: UIViewController {
     
+    var refControl = UIRefreshControl()
     var expandedLabel: UILabel!
     var indexOfCellToExpand: Int!
     var expended = false
@@ -21,6 +22,7 @@ class NewsViewController: UIViewController {
     
     var articles = [Article]()
     var searchedTopic: String? = "Sevastopol"
+    var searchingTopic: String = "Sevastopol"
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
@@ -30,8 +32,28 @@ class NewsViewController: UIViewController {
         
         indexOfCellToExpand = -1
         fetchArticles(for: searchedTopic ?? "")
+        setupRefControl()
         title = "All News"
         TapLabelToScrollToTheTop(font: UIFont.systemFont(ofSize: 17, weight: .semibold), textColor: UIColor.black, backgroundColor: UIColor.clear)
+    }
+    
+    private func setupRefControl() {
+        refControl.tintColor = UIColor.white
+        refControl.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refControl)
+    }
+    
+    @objc func handleRefresh(refreshControl: UIRefreshControl) {
+        DispatchQueue.global().async {
+            
+            self.articles.removeAll()
+            self.fetchArticles(for: self.searchingTopic)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                refreshControl.endRefreshing()
+            }
+        }
     }
     
     private func fetchArticles(for searchText: String) {
@@ -154,6 +176,7 @@ extension NewsViewController: UISearchBarDelegate {
         } else {
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+                self.searchingTopic = searchText
                 self.currentPage = 1
                 self.articles.removeAll()
                 self.fetchArticles(for: searchText)

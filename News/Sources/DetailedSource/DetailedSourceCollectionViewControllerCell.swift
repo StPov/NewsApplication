@@ -13,7 +13,7 @@ class DetailedArticleCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var sourceAndAuthorLabel: UILabel!
+    @IBOutlet private var authorLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
     @IBOutlet private var publishedAtLabel: UILabel!
     
@@ -33,13 +33,9 @@ class DetailedArticleCollectionViewCell: UICollectionViewCell {
                 titleLabel.text = article.title
                 descriptionLabel.text = article.description
                 
-                publishedAtLabel.text = article.publishedAt
+                publishedAtLabel.text = String(article.publishedAt.prefix(10))
                 
-                guard let author = article.author else {
-                    sourceAndAuthorLabel.text = "\(String(describing: article.source))"
-                    return
-                }
-                sourceAndAuthorLabel.text = "\(String(describing: article.source)), \(author)"
+                authorLabel.text = "" //this field is "empty" because of request answer may contant url-link, which is not appropriate to UX
             }
         }
     }
