@@ -18,6 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().tintColor = .black
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+        NSAttributedString.Key.foregroundColor: UIColor.black,
+        NSAttributedString.Key.font: UIFont(name: "Arial Rounded MT Bold", size: 20)!]
+        
+//        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navigationTitleFont]
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

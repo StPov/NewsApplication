@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aEt-3m-ctj">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -34,11 +35,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cgg-0J-Hrn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="huh-GW-1ES">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DaU-OT-sN0">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewCell" rowHeight="170" id="Ph3-ez-DO6" customClass="NewsTableViewCell" customModule="News" customModuleProvider="target">
@@ -58,14 +59,14 @@
                                                                 <constraint firstAttribute="height" constant="100" id="vT4-uf-cA6"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOs-Jl-Cmv">
-                                                            <rect key="frame" x="99" y="24" width="287" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOs-Jl-Cmv">
+                                                            <rect key="frame" x="99" y="24" width="287" height="74"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQw-2Y-HJW">
-                                                            <rect key="frame" x="8" y="111" width="378" height="39"/>
+                                                            <rect key="frame" x="8" y="106" width="378" height="48"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -76,11 +77,11 @@
                                                         <constraint firstItem="dOs-Jl-Cmv" firstAttribute="leading" secondItem="AEp-Ik-KAj" secondAttribute="trailing" constant="8" id="1c9-dm-qlv"/>
                                                         <constraint firstAttribute="trailing" secondItem="wQw-2Y-HJW" secondAttribute="trailing" constant="8" id="2Wb-FS-teh"/>
                                                         <constraint firstItem="wQw-2Y-HJW" firstAttribute="leading" secondItem="YUZ-9l-ucq" secondAttribute="leading" constant="8" id="dHY-Fk-CI9"/>
-                                                        <constraint firstItem="wQw-2Y-HJW" firstAttribute="top" secondItem="AEp-Ik-KAj" secondAttribute="bottom" constant="5" id="f0V-WW-yLN"/>
+                                                        <constraint firstItem="wQw-2Y-HJW" firstAttribute="top" secondItem="AEp-Ik-KAj" secondAttribute="bottom" id="f0V-WW-yLN"/>
                                                         <constraint firstItem="AEp-Ik-KAj" firstAttribute="leading" secondItem="YUZ-9l-ucq" secondAttribute="leading" constant="6" id="hcI-99-MYS"/>
                                                         <constraint firstItem="dOs-Jl-Cmv" firstAttribute="top" secondItem="YUZ-9l-ucq" secondAttribute="top" constant="24" id="o2H-gW-HTJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="dOs-Jl-Cmv" secondAttribute="trailing" constant="8" id="s7W-HZ-Qn5"/>
-                                                        <constraint firstAttribute="bottom" secondItem="wQw-2Y-HJW" secondAttribute="bottom" constant="4" id="xa7-gC-rE0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="wQw-2Y-HJW" secondAttribute="bottom" id="xa7-gC-rE0"/>
                                                         <constraint firstItem="AEp-Ik-KAj" firstAttribute="top" secondItem="YUZ-9l-ucq" secondAttribute="top" constant="6" id="xoa-fo-tvi"/>
                                                     </constraints>
                                                 </view>

@@ -31,6 +31,7 @@ class NewsViewController: UIViewController {
         indexOfCellToExpand = -1
         fetchArticles(for: searchedTopic ?? "")
         title = "All News"
+        TapLabelToScrollToTheTop(font: UIFont.systemFont(ofSize: 17, weight: .semibold), textColor: UIColor.black, backgroundColor: UIColor.clear)
     }
     
     private func fetchArticles(for searchText: String) {
@@ -63,6 +64,25 @@ class NewsViewController: UIViewController {
         indexOfCellToExpand = label.tag
         tableView.reloadRows(at: [IndexPath(row: label.tag, section: 0)], with: .fade)
         tableView.scrollToRow(at: IndexPath(row: label.tag, section: 0), at: .top, animated: true)
+    }
+    
+    func TapLabelToScrollToTheTop(font: UIFont, textColor: UIColor, backgroundColor: UIColor) {
+            let titlelabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+            titlelabel.text = self.navigationItem.title
+            titlelabel.textColor = textColor
+            titlelabel.font = font
+            titlelabel.backgroundColor = backgroundColor
+            titlelabel.textAlignment = .center
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped))
+            tapGestureRecognizer.numberOfTapsRequired = 1
+            titlelabel.addGestureRecognizer(tapGestureRecognizer)
+            titlelabel.isUserInteractionEnabled = true
+            self.navigationItem.titleView = titlelabel
+        }
+        
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) { //Press the navigation label to go at the top
+            let topOffest = CGPoint(x: 0, y: -(self.tableView?.contentInset.top ?? 0))
+            self.tableView?.setContentOffset(topOffest, animated: true)
     }
 }
 

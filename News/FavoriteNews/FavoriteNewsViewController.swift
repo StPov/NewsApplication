@@ -13,6 +13,7 @@ class FavoriteNewsViewController: UIViewController {
     
     var expandedLabel: UILabel!
     var indexOfCellToExpand: Int!
+    var expended = false
     
     private var timer: Timer?
     var networkDataFetcher = NetworkDataFetcher()
@@ -27,7 +28,8 @@ class FavoriteNewsViewController: UIViewController {
         super.viewDidLoad()
         
         indexOfCellToExpand = -1
-        title = "All News"
+        self.title = "All News"
+        TapLabelToScrollToTheTop(font: UIFont.systemFont(ofSize: 17, weight: .semibold), textColor: UIColor.black, backgroundColor: UIColor.clear)
         savedArticles = realm.objects(ArticleObject.self)
     }
     
@@ -37,12 +39,37 @@ class FavoriteNewsViewController: UIViewController {
         let cell = tableView.cellForRow(at: IndexPath(row: label.tag, section: 0)) as! NewsTableViewCell
         let article = self.savedArticles[label.tag]
         let description = article.description
-        cell.newsDescription.sizeToFit()
+        if !expended {
+            cell.newsDescription.sizeToFit()
+            expended = true
+        } else {
+            cell.newsDescription.frame = CGRect(x: cell.newsDescription.frame.minX, y: cell.newsDescription.frame.minY, width: cell.newsDescription.frame.width, height: cell.bounds.height - expandedLabel.frame.height + 38)
+            expended = false
+        }
         cell.newsDescription.text = description
         expandedLabel = cell.newsDescription
         indexOfCellToExpand = label.tag
         tableView.reloadRows(at: [IndexPath(row: label.tag, section: 0)], with: .fade)
         tableView.scrollToRow(at: IndexPath(row: label.tag, section: 0), at: .top, animated: true)
+    }
+    
+    func TapLabelToScrollToTheTop(font: UIFont, textColor: UIColor, backgroundColor: UIColor) {
+            let titlelabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+            titlelabel.text = self.navigationItem.title
+            titlelabel.textColor = textColor
+            titlelabel.font = font
+            titlelabel.backgroundColor = backgroundColor
+            titlelabel.textAlignment = .center
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped))
+            tapGestureRecognizer.numberOfTapsRequired = 1
+            titlelabel.addGestureRecognizer(tapGestureRecognizer)
+            titlelabel.isUserInteractionEnabled = true
+            self.navigationItem.titleView = titlelabel
+        }
+        
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) { //Press the navigation label to go at the top
+            let topOffest = CGPoint(x: 0, y: -(self.tableView?.contentInset.top ?? 0))
+            self.tableView?.setContentOffset(topOffest, animated: true)
     }
 }
 
@@ -104,5 +131,21 @@ extension FavoriteNewsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   heightForFooterInSection section: Int) -> CGFloat {
+        return 50
+    }
+
+    func tableView(_ tableView: UITableView,
+                   viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 0,
+                                              y: 0,
+                                              width: self.tableView.frame.width,
+                                              height: 2))
+        footerView.backgroundColor = .clear
+        
+        return footerView
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SJH-Ka-26R">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -34,11 +35,11 @@
                         <viewControllerLayoutGuide type="bottom" id="AqJ-oQ-ALE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Thi-AH-Ojl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F1B-cO-0Dd">
-                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewCell" rowHeight="170" id="3zm-HJ-7Zv" customClass="NewsTableViewCell" customModule="News" customModuleProvider="target">
@@ -59,13 +60,13 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bB-Wm-IsA">
-                                                            <rect key="frame" x="99" y="24" width="287" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <rect key="frame" x="99" y="24" width="287" height="82"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tv-Ee-HQ4">
-                                                            <rect key="frame" x="8" y="111" width="378" height="39"/>
+                                                            <rect key="frame" x="8" y="106" width="378" height="48"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -76,12 +77,13 @@
                                                         <constraint firstAttribute="trailing" secondItem="5tv-Ee-HQ4" secondAttribute="trailing" constant="8" id="1AB-kt-Od4"/>
                                                         <constraint firstItem="u4e-hc-vtC" firstAttribute="top" secondItem="yel-G8-5j8" secondAttribute="top" constant="6" id="3HM-Eu-dH4"/>
                                                         <constraint firstItem="u4e-hc-vtC" firstAttribute="leading" secondItem="yel-G8-5j8" secondAttribute="leading" constant="6" id="Mbq-5q-FV4"/>
-                                                        <constraint firstItem="2bB-Wm-IsA" firstAttribute="top" secondItem="yel-G8-5j8" secondAttribute="top" constant="24" id="OnX-ND-8gS"/>
-                                                        <constraint firstItem="5tv-Ee-HQ4" firstAttribute="top" secondItem="u4e-hc-vtC" secondAttribute="bottom" constant="5" id="Ox0-MN-7VA"/>
-                                                        <constraint firstAttribute="bottom" secondItem="5tv-Ee-HQ4" secondAttribute="bottom" constant="4" id="Tm2-zR-79J"/>
-                                                        <constraint firstAttribute="trailing" secondItem="2bB-Wm-IsA" secondAttribute="trailing" constant="8" id="bAM-Eo-csL"/>
-                                                        <constraint firstItem="2bB-Wm-IsA" firstAttribute="leading" secondItem="u4e-hc-vtC" secondAttribute="trailing" constant="8" id="hXk-x5-bJU"/>
+                                                        <constraint firstItem="2bB-Wm-IsA" firstAttribute="top" secondItem="yel-G8-5j8" secondAttribute="top" constant="24" id="Ohv-M8-s7e"/>
+                                                        <constraint firstItem="5tv-Ee-HQ4" firstAttribute="top" secondItem="u4e-hc-vtC" secondAttribute="bottom" id="Ox0-MN-7VA"/>
+                                                        <constraint firstItem="2bB-Wm-IsA" firstAttribute="trailing" secondItem="5tv-Ee-HQ4" secondAttribute="trailing" id="TEX-Sf-fA7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5tv-Ee-HQ4" secondAttribute="bottom" id="Tm2-zR-79J"/>
+                                                        <constraint firstItem="2bB-Wm-IsA" firstAttribute="leading" secondItem="u4e-hc-vtC" secondAttribute="trailing" constant="8" id="V9h-oN-bGu"/>
                                                         <constraint firstItem="5tv-Ee-HQ4" firstAttribute="leading" secondItem="yel-G8-5j8" secondAttribute="leading" constant="8" id="y0u-nd-QrL"/>
+                                                        <constraint firstItem="2bB-Wm-IsA" firstAttribute="bottom" secondItem="u4e-hc-vtC" secondAttribute="bottom" id="zaa-Ii-ZG3"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -134,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xZ-1Q-QER" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3219" y="1174"/>
+            <point key="canvasLocation" x="3218.840579710145" y="1173.8839285714284"/>
         </scene>
     </scenes>
     <resources>
