@@ -13,6 +13,7 @@ class NewsViewController: UIViewController {
     
     var expandedLabel: UILabel!
     var indexOfCellToExpand: Int!
+    var expended = false
     
     private var timer: Timer?
     var networkDataFetcher = NetworkDataFetcher()
@@ -50,7 +51,13 @@ class NewsViewController: UIViewController {
         let cell = tableView.cellForRow(at: IndexPath(row: label.tag, section: 0)) as! NewsTableViewCell
         let article = self.articles[label.tag]
         let description = article.description
-        cell.newsDescription.sizeToFit()
+        if !expended {
+            cell.newsDescription.sizeToFit()
+            expended = true
+        } else {
+            cell.newsDescription.frame = CGRect(x: cell.newsDescription.frame.minX, y: cell.newsDescription.frame.minY, width: cell.newsDescription.frame.width, height: cell.bounds.height - expandedLabel.frame.height + 38)
+            expended = false
+        }
         cell.newsDescription.text = description
         expandedLabel = cell.newsDescription
         indexOfCellToExpand = label.tag
