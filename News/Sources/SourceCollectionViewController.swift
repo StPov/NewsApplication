@@ -25,6 +25,18 @@ class SourceCollectionViewController: UICollectionViewController {
         fetchSources()
         setupCollectionView()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if Core.share.isNewUser() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "welcome") as? WelcomeViewController {
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true)
+            }
+        }
+    }
 
     private func fetchSources() {
         self.networkDataFetcher.fetchSources { [weak self] (searchSources) in
