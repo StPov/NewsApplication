@@ -16,6 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="iNu-41-NbI" customClass="UltravisualLayout" customModule="News" customModuleProvider="target"/>
+                        <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" id="QZI-YW-Op4">
+                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SourceCollectionViewCell" id="h4I-P7-JVz" customClass="SourceCollectionViewCell" customModule="News" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -302,6 +306,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="640" height="889"/>
         <image name="book" catalog="system" width="128" height="101"/>
     </resources>
 </document>

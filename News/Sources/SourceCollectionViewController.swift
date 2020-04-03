@@ -17,9 +17,6 @@ class SourceCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let patternImage = UIImage(named: "background") {
-          view.backgroundColor = UIColor(patternImage: patternImage)
-        }
         title = "News Applicaton"
         
         fetchSources()

@@ -26,11 +26,12 @@ class DetailedArticleCollectionViewCell: UICollectionViewCell {
                 headerLabel.text = article.source.name
                 
                 guard let imageUrl = article.urlToImage, let url = URL(string: imageUrl) else {
-                    imageView.image = UIImage(named: "no_image")
+                    imageView.image = UIImage(named: "gallery")
                     return
                 }
                 imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
                 imageView.sd_setImage(with: url, completed: nil)
+                self.layer.cornerRadius = 10
                 titleLabel.text = article.title
                 descriptionLabel.text = article.description
                 
