@@ -109,16 +109,13 @@ extension DetailedSourceViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
             return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
                 let save = UIAction(title: "Save", image: UIImage(named: "save")) { action in
-                    let realm = try! Realm()
-                    try! realm.write {
-                        let realmObject = ArticleObject()
-                        let news = self.articles[indexPath.row]
-                        realmObject.article = Article(source: news.source, author: news.author,
-                                                      title: news.title, description: news.description,
-                                                      url: news.url, urlToImage: news.urlToImage,
-                                                      publishedAt: news.publishedAt, content: news.content)
-                        realm.add(realmObject)
-                    }
+                    let realmObject = ArticleObject()
+                    let news = self.articles[indexPath.row]
+                    realmObject.article = Article(source: news.source, author: news.author,
+                                                  title: news.title, description: news.description,
+                                                  url: news.url, urlToImage: news.urlToImage,
+                                                  publishedAt: news.publishedAt, content: news.content)
+                    DBManager.sharedInstance.addData(object: realmObject)
                 }
                 return UIMenu(title: "", children: [save])
             }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsTableViewCell: UITableViewCell {
     static let reuseIdentifier = String(describing: NewsTableViewCell.self)
@@ -22,6 +23,7 @@ class NewsTableViewCell: UITableViewCell {
                     newsPhoto.image = UIImage(named: "no_image")
                     return
                 }
+                newsPhoto.sd_imageIndicator = SDWebImageActivityIndicator.gray
                 newsPhoto.sd_setImage(with: url, completed: nil)
                 newsTitle.text = article.title
                 newsDescription.text = article.description

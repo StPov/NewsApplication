@@ -18,7 +18,6 @@ class FavoriteNewsViewController: UIViewController {
     private var timer: Timer?
     var networkDataFetcher = NetworkDataFetcher()
     var currentPage = 1
-    let realm = try! Realm()
     
     var savedArticles: Results<ArticleObject>!
     
@@ -30,7 +29,11 @@ class FavoriteNewsViewController: UIViewController {
         indexOfCellToExpand = -1
         self.title = "All News"
         TapLabelToScrollToTheTop(font: UIFont.systemFont(ofSize: 17, weight: .semibold), textColor: UIColor.black, backgroundColor: UIColor.clear)
-        savedArticles = realm.objects(ArticleObject.self)
+        savedArticles = DBManager.sharedInstance.getDataFromDB()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     @objc func expandCell(sender: UITapGestureRecognizer) {
@@ -79,7 +82,7 @@ extension FavoriteNewsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reuseIdentifier) as! NewsTableViewCell
         
-        cell.article = savedArticles[indexPath.row].article
+        cell.article = DBManager.sharedInstance.getDataFromDB()[indexPath.row].article
         cell.newsDescription.tag = indexPath.row
         let tap = UITapGestureRecognizer(target: self, action: #selector(NewsViewController.expandCell(sender:)))
         cell.newsDescription.addGestureRecognizer(tap)
@@ -88,8 +91,8 @@ extension FavoriteNewsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if savedArticles.count != 0 {
-            return savedArticles.count
+        if DBManager.sharedInstance.getDataFromDB().count != 0 {
+            return DBManager.sharedInstance.getDataFromDB().count
         } else {
             return 0
         }
@@ -105,14 +108,12 @@ extension FavoriteNewsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
-            let save = UIAction(title: "Delete", image: UIImage(named: "delete")) { action in
-                try! self.realm.write {
-                    let editingRow = self.savedArticles[indexPath.row]
-                    self.realm.delete(editingRow)
-                    tableView.reloadData()
-                }
+            let delete = UIAction(title: "Delete", image: UIImage(named: "delete")) { action in
+                DBManager.sharedInstance.deleteFromDb(object: self.savedArticles[indexPath.row])
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+                tableView.reloadData()
             }
-            return UIMenu(title: "", children: [save])
+            return UIMenu(title: "", children: [delete])
         }
     }
     
@@ -121,10 +122,9 @@ extension FavoriteNewsViewController: UITableViewDelegate, UITableViewDataSource
         let editingRow = savedArticles[indexPath.row]
                 
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { _,_ in
-            try! self.realm.write {
-                self.realm.delete(editingRow)
-                tableView.reloadData()
-            }
+            DBManager.sharedInstance.deleteFromDb(object: self.savedArticles[indexPath.row])
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            tableView.reloadData()
         }
         return [deleteAction]
     }

@@ -29,6 +29,7 @@ class DetailedArticleCollectionViewCell: UICollectionViewCell {
                     imageView.image = UIImage(named: "no_image")
                     return
                 }
+                imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
                 imageView.sd_setImage(with: url, completed: nil)
                 titleLabel.text = article.title
                 descriptionLabel.text = article.description
