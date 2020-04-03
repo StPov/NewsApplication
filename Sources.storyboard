@@ -279,11 +279,20 @@
                         <outlet property="backgroundImageView" destination="UQ1-fU-9U8" id="i5r-Db-8Ai"/>
                         <outlet property="collectionView" destination="KGt-m3-Ldj" id="4w2-p1-553"/>
                         <outlet property="segmentedControl" destination="Gfw-mb-cHy" id="ef7-5q-TLc"/>
+                        <segue destination="eiq-iN-NXZ" kind="presentation" identifier="NetworkUnavailable" modalPresentationStyle="fullScreen" id="ZHF-LM-QHV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTz-dr-WAA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3194.202898550725" y="431.91964285714283"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="qhc-t9-GZh">
+            <objects>
+                <viewControllerPlaceholder id="eiq-iN-NXZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qY1-wt-odr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3916" y="353"/>
         </scene>
         <!--Sources-->
         <scene sceneID="eCs-1p-6yu">

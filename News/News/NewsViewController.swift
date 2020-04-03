@@ -17,6 +17,7 @@ class NewsViewController: UIViewController {
     var expended = false
     
     private var timer: Timer?
+    let network = NetworkManager.sharedInstance
     var networkDataFetcher = NetworkDataFetcher()
     var currentPage = 1
     
@@ -35,7 +36,16 @@ class NewsViewController: UIViewController {
         setupRefControl()
         title = "All News"
         TapLabelToScrollToTheTop(font: UIFont.systemFont(ofSize: 17, weight: .semibold), textColor: UIColor.black, backgroundColor: UIColor.clear)
+        network.reachability.whenUnreachable = { reachability in
+            self.showOfflinePage()
+        }
     }
+        
+        private func showOfflinePage() -> Void {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "NetworkUnavailable", sender: self)
+            }
+        }
     
     private func setupRefControl() {
         refControl.tintColor = UIColor.white

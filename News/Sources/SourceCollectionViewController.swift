@@ -16,7 +16,7 @@ class SourceCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.modalPresentationStyle = .fullScreen
         title = "News Applicaton"
         
         fetchSources()

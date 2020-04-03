@@ -132,11 +132,20 @@
                     <navigationItem key="navigationItem" id="tna-DM-1ej"/>
                     <connections>
                         <outlet property="tableView" destination="F1B-cO-0Dd" id="vYy-cJ-g6n"/>
+                        <segue destination="hDe-z6-VFF" kind="presentation" identifier="NetworkUnavailable" modalPresentationStyle="fullScreen" id="1h9-fR-dCF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xZ-1Q-QER" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3218.840579710145" y="1173.8839285714284"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Tt7-Wa-c4M">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="hDe-z6-VFF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5r-ZC-hO0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3972" y="1052"/>
         </scene>
     </scenes>
     <resources>

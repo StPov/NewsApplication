@@ -8,5 +8,6 @@ target 'News' do
   # Pods for News
   pod 'SDWebImage', '~> 5.0'
   pod 'RealmSwift'
+  pod 'ReachabilitySwift'
 
 end

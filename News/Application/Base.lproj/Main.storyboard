@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jru-fF-Dgz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bpg-lQ-1re">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -35,13 +35,72 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-467" y="432"/>
+            <point key="canvasLocation" x="-1148" y="432"/>
+        </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="nPw-If-vSl">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jj3-Gc-9PX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="bpg-lQ-1re" customClass="LaunchViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xrH-54-di9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="n0X-MF-3vt"/>
+                    </view>
+                    <connections>
+                        <segue destination="Eyh-Yc-ED9" kind="presentation" identifier="NetworkUnavailable" modalPresentationStyle="fullScreen" id="uWP-T0-yRF"/>
+                        <segue destination="jru-fF-Dgz" kind="presentation" identifier="MainController" modalPresentationStyle="fullScreen" id="zeT-k0-kgZ"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-286" y="432"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tpc-jv-etf">
+            <objects>
+                <viewController id="Eyh-Yc-ED9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fTt-db-Af9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="t0n-2Q-gtG">
+                                <rect key="frame" x="28" y="375" width="358.5" height="156"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-wifi " translatesAutoresizingMaskIntoConstraints="NO" id="WNg-kj-qiW">
+                                        <rect key="frame" x="147" y="0.0" width="64" height="64"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No internet connection :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6O-It-7lo">
+                                        <rect key="frame" x="0.0" y="115" width="358.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="t0n-2Q-gtG" firstAttribute="centerX" secondItem="9fI-CJ-tNC" secondAttribute="centerX" id="EH2-kw-tPR"/>
+                            <constraint firstItem="t0n-2Q-gtG" firstAttribute="centerY" secondItem="9fI-CJ-tNC" secondAttribute="centerY" id="loy-of-gYi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9fI-CJ-tNC"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0S2-Es-Aq1"/>
+                    <connections>
+                        <segue destination="jru-fF-Dgz" kind="presentation" identifier="MainController" modalPresentationStyle="fullScreen" id="pzl-t6-x11"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3r-Hw-wKf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="642" y="-530"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NaD-gz-y2a">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jru-fF-Dgz" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Mp9-Je-tGm"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eB7-P1-B5a">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -89,4 +148,10 @@
             <point key="canvasLocation" x="1454" y="1910"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pzl-t6-x11"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="no-wifi " width="64" height="64"/>
+    </resources>
 </document>
