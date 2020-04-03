@@ -12,6 +12,7 @@ import SDWebImage
 class NewsTableViewCell: UITableViewCell {
     static let reuseIdentifier = String(describing: NewsTableViewCell.self)
 
+    @IBOutlet var cardView: UIView!
     @IBOutlet var newsDescription: UILabel!
     @IBOutlet var newsTitle: UILabel!
     @IBOutlet var newsPhoto: UIImageView!
@@ -27,6 +28,12 @@ class NewsTableViewCell: UITableViewCell {
                 newsPhoto.sd_setImage(with: url, completed: nil)
                 newsTitle.text = article.title
                 newsDescription.text = article.description
+                
+                cardView.layer.shadowColor = UIColor.gray.cgColor
+                cardView.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+                cardView.layer.shadowOpacity = 1.0
+                cardView.layer.masksToBounds = false
+                cardView.layer.cornerRadius = 2.0
             }
         }
     }

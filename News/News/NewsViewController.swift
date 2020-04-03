@@ -35,6 +35,7 @@ class NewsViewController: UIViewController {
         fetchArticles(for: searchedTopic ?? "")
         setupRefControl()
         title = "All News"
+        tableView.backgroundView = UIImageView(image: UIImage(named: "tableview_background1"))
         TapLabelToScrollToTheTop(font: UIFont.systemFont(ofSize: 17, weight: .semibold), textColor: UIColor.black, backgroundColor: UIColor.clear)
         network.reachability.whenUnreachable = { reachability in
             self.showOfflinePage()
@@ -138,9 +139,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == indexOfCellToExpand
         {
-            return 170 + expandedLabel.frame.height - 38
+            return 400 + expandedLabel.frame.height - 38
         }
-        return 170
+        return 400
     }
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
