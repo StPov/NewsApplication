@@ -27,7 +27,7 @@ class FavoriteNewsViewController: UIViewController {
         super.viewDidLoad()
         
         indexOfCellToExpand = -1
-        self.title = "All News"
+        self.title = "Favorites"
         tableView.backgroundView = UIImageView(image: UIImage(named: "tableview_background1"))
         TapLabelToScrollToTheTop(font: UIFont.systemFont(ofSize: 17, weight: .semibold), textColor: UIColor.black, backgroundColor: UIColor.clear)
         savedArticles = DBManager.sharedInstance.getDataFromDB()
