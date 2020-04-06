@@ -46,9 +46,14 @@ class FavoriteNewsViewController: UIViewController {
         if !expended {
             cell.newsDescription.sizeToFit()
             expended = true
+            print("Expended")
         } else {
-            cell.newsDescription.frame = CGRect(x: cell.newsDescription.frame.minX, y: cell.newsDescription.frame.minY, width: cell.newsDescription.frame.width, height: cell.bounds.height - expandedLabel.frame.height + 38)
+            cell.newsDescription.frame = CGRect(x: cell.newsDescription.frame.minX,
+                                                y: cell.newsDescription.frame.minY,
+                                                width: cell.newsDescription.frame.width,
+                                                height: expandedLabel.frame.height - 100)
             expended = false
+            print("Not expended")
         }
         cell.newsDescription.text = description
         expandedLabel = cell.newsDescription
