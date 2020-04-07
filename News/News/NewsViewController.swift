@@ -34,7 +34,7 @@ class NewsViewController: UIViewController {
         indexOfCellToExpand = -1
         fetchArticles(for: searchedTopic ?? "")
         setupRefControl()
-        title = "All News"
+        title = NSLocalizedString("All News", comment: "Title for bars")
         tableView.backgroundView = UIImageView(image: UIImage(named: "tableview_background1"))
         TapLabelToScrollToTheTop(font: UIFont.systemFont(ofSize: 17, weight: .semibold), textColor: UIColor.black, backgroundColor: UIColor.clear)
         network.reachability.whenUnreachable = { reachability in

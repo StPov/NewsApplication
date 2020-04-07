@@ -27,7 +27,7 @@ class FavoriteNewsViewController: UIViewController {
         super.viewDidLoad()
         
         indexOfCellToExpand = -1
-        self.title = "Favorites"
+        self.title = NSLocalizedString("Favorites", comment: "Title for bars")
         tableView.backgroundView = UIImageView(image: UIImage(named: "tableview_background1"))
         TapLabelToScrollToTheTop(font: UIFont.systemFont(ofSize: 17, weight: .semibold), textColor: UIColor.black, backgroundColor: UIColor.clear)
         savedArticles = DBManager.sharedInstance.getDataFromDB()
@@ -114,7 +114,7 @@ extension FavoriteNewsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
-            let delete = UIAction(title: "Delete", image: UIImage(named: "delete")) { action in
+            let delete = UIAction(title: NSLocalizedString("Delete", comment: "Delete menu item"), image: UIImage(named: "delete")) { action in
                 DBManager.sharedInstance.deleteFromDb(object: self.savedArticles[indexPath.row])
                 tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
                 tableView.reloadData()
@@ -127,7 +127,8 @@ extension FavoriteNewsViewController: UITableViewDelegate, UITableViewDataSource
         
         let editingRow = savedArticles[indexPath.row]
                 
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { _,_ in
+        let deleteAction = UITableViewRowAction(style: .default, title: NSLocalizedString("Delete",
+                                                                                          comment: "Delete swipe action title")) { _,_ in
             DBManager.sharedInstance.deleteFromDb(object: self.savedArticles[indexPath.row])
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
             tableView.reloadData()

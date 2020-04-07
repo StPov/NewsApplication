@@ -17,7 +17,7 @@ class SourceCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationStyle = .fullScreen
-        title = "News Applicaton"
+        title = NSLocalizedString("News Applicaton", comment: "Title for bars")
         
         fetchSources()
         setupCollectionView()

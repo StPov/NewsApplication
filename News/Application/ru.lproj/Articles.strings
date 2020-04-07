@@ -1,0 +1,21 @@
+/* Class = "UILabel"; text = "Title"; ObjectID = "2bB-Wm-IsA"; */
+"2bB-Wm-IsA.text" = "Заголовок";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "4GZ-cU-VFp"; */
+"4GZ-cU-VFp.text" = "Описание";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "5tv-Ee-HQ4"; */
+"5tv-Ee-HQ4.text" = "Описание";
+
+/* Class = "UITabBarItem"; title = "All News"; ObjectID = "c4S-ec-OXH"; */
+"c4S-ec-OXH.title" = "Все новости";
+
+/* Class = "UISearchBar"; placeholder = "Enter your request"; ObjectID = "dXb-ur-X01"; */
+"dXb-ur-X01.placeholder" = "Введите Ваш запрос";
+
+/* Class = "UISearchBar"; placeholder = "Enter search request"; ObjectID = "qPV-DS-HRC"; */
+"qPV-DS-HRC.placeholder" = "Введите Ваш запрос";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "vTu-gj-saq"; */
+"vTu-gj-saq.text" = "Заголовок";
+
